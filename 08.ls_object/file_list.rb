@@ -10,7 +10,7 @@ module Ls
       @opts = opt
     end
 
-    def format_option(opt)
+    def toggle_in_option(opt)
       formatter = Ls::Formatter.new
       if opt['l']
         formatter.detail(target_files)
