@@ -6,7 +6,7 @@ require './file_data'
 
 module Ls
   class Formatter
-    def simple(files)
+    def output_simple(files)
       reformed_files = []
       print_lines = (files.size / 3.to_f).ceil
       files.each_slice(print_lines) do |separated_files|
@@ -21,13 +21,13 @@ module Ls
       end
     end
 
-    def detail(files)
+    def output_detail(files)
       puts "total #{total_size(files)}"
       files.each do |file|
         file_data = FileData.new(file)
         print file_data.ftype
         print "#{file_data.permission} "
-        print "#{file_data.nlink} ".to_s.rjust(3)
+        print "#{file_data.nlink.to_s.rjust(2)} "
         print "#{file_data.user_name}  "
         print "#{file_data.group_name} "
         print "#{file_data.size.to_s.rjust(5)} "

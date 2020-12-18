@@ -9,7 +9,7 @@ module Ls
   class Main
     def run(opt)
       file_list = Ls::FileList.new(opt)
-      file_list.toggle_in_option(opt)
+      file_list.output_files(opt)
     end
   end
 end

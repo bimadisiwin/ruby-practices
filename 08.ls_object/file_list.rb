@@ -10,12 +10,12 @@ module Ls
       @opts = opt
     end
 
-    def toggle_in_option(opt)
+    def output_files(opt)
       formatter = Ls::Formatter.new
       if opt['l']
-        formatter.detail(target_files)
+        formatter.output_detail(target_files)
       else
-        formatter.simple(target_files)
+        formatter.output_simple(target_files)
       end
     end
 
