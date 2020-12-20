@@ -21,13 +21,14 @@ module Ls
     end
 
     def ftype
-      type = @lstat.ftype
-      lists = {
-        'directory' => 'd',
-        'link' => 'l',
-        'file' => '-'
-      }
-      lists[type]
+      case @lstat.ftype
+      when 'directory'
+        'd'
+      when 'link'
+        'l'
+      when 'file'
+        '-'
+      end
     end
 
     def permission
