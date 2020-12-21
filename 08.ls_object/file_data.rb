@@ -15,20 +15,20 @@ module Ls
       '7' => 'rwx'
     }.freeze
 
+    FTYPE_LIST = {
+      'directory' => 'd',
+      'link' => 'l',
+      'file' => '-'
+    }.freeze
+
     def initialize(file)
       @file = file
       @lstat = File.lstat(@file)
     end
 
     def ftype
-      case @lstat.ftype
-      when 'directory'
-        'd'
-      when 'link'
-        'l'
-      when 'file'
-        '-'
-      end
+      type = @lstat.ftype
+      FTYPE_LIST[type]
     end
 
     def permission
